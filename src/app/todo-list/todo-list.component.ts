@@ -1,17 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
-import {Todo} from '../models/todo';
-import {Store} from '@ngrx/store';
-import {selectTodos} from '../store/selectors';
-import {loadTodos} from '../store/actions';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Todo } from '../models/todo';
+import { loadTodos, toggleTodo } from '../store/actions';
+import { selectTodos } from '../store/selectors';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.scss']
+  styleUrls: ['./todo-list.component.scss'],
 })
 export class TodoListComponent implements OnInit {
-
   todos$: Observable<ReadonlyArray<Todo>>;
 
   constructor(private store: Store) {
@@ -19,7 +18,10 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this.store.dispatch(loadTodos());
+    this.store.dispatch(loadTodos());
   }
 
+  toggleTodo(todo: Todo) {
+    this.store.dispatch(toggleTodo({ changedTodo: todo }));
+  }
 }

@@ -4092,6 +4092,11 @@ immediate@~3.0.5:
   resolved "https://registry.yarnpkg.com/immediate/-/immediate-3.0.6.tgz#9db1dbd0faf8de6fbe0f5dd5e56bb606280de69b"
   integrity sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==
 
+immer@^9.0.6:
+  version "9.0.21"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-9.0.21.tgz#1e025ea31a40f24fb064f1fef23e931496330176"
+  integrity sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==
+
 immutable@^4.0.0:
   version "4.3.7"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.3.7.tgz#c70145fc90d89fb02021e65c84eb0226e4e5a381"
@@ -5044,6 +5049,21 @@ ng-mocks@^14.11.0:
   version "14.14.0"
   resolved "https://registry.yarnpkg.com/ng-mocks/-/ng-mocks-14.14.0.tgz#07666a95d222326fd2b0a2c92e21762d31d62792"
   integrity sha512-ixx3ch5dzjDpp6QdxHPfOOBE/8foInkVxMi/dO6/DWm/LoZbzxsUNu93bwcedaCZEMkHdwXk+gTPQZ1rXMPAMw==
+
+ngrx-etc@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/ngrx-etc/-/ngrx-etc-7.0.1.tgz#4f6d703c0eff12e6d3babedd7fecfe2fa6d1e5ee"
+  integrity sha512-xDipJEyb1Cke8LcvCioItFxL0bG05lmssD2SKcRrexIX0r5+FH1gkbNA2YQs4VXs0RlYfzuNDozcfQiSm76Vnw==
+  dependencies:
+    immer "^9.0.6"
+    ngrx-immer "^1.0.1"
+
+ngrx-immer@^1.0.1:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/ngrx-immer/-/ngrx-immer-1.0.3.tgz#569bd27c090ead05567dec7eef6e0eb72cc1c7ee"
+  integrity sha512-Eo1sES5gQ+HB0mv3aV8rJYA9OgIsAM+Hvcx6M6UyYI4liCWDhgGtqHful1pea0XTRVW0uR2e7gYwZr7dZX8Svw==
+  dependencies:
+    tslib "^2.2.0"
 
 nice-napi@^1.0.2:
   version "1.0.2"
@@ -6997,7 +7017,7 @@ tslib@^1.10.0, tslib@^1.13.0, tslib@^1.8.1, tslib@^1.9.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2.0.0, tslib@^2.1.0, tslib@^2.3.0:
+tslib@^2.0.0, tslib@^2.1.0, tslib@^2.2.0, tslib@^2.3.0:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
   integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
