@@ -15,7 +15,7 @@ export class MockTodoApi implements InMemoryDbService {
         title: 'US3 - View TODO details',
         description:
           'As a user I would like to display one of my todo in a separate or dedicated view. This todo will contain its title and a description (which is a new information not shown in the previous view).',
-        isClosed: false,
+        isClosed: true,
       },
       {
         id: 4,
@@ -23,7 +23,9 @@ export class MockTodoApi implements InMemoryDbService {
         description: 'As a user I would like to add a new todo in my list',
         isClosed: false,
       },
-      { id: 5, title: 'More - tests, CI?', isClosed: false },
+      { id: 5, title: 'More unit tests', isClosed: false },
+      { id: 6, title: 'Prettier design', isClosed: false },
+      { id: 7, title: 'CI', isClosed: false },
     ];
     return { todos };
   }
