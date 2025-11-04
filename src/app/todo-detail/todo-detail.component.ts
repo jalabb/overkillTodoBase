@@ -20,6 +20,8 @@ export class TodoDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
 
+  NO_DESCRIPTION = 'This item could not be found or does not exist';
+
   id!: number;
   todo$: Observable<Readonly<Todo | undefined>>;
 
