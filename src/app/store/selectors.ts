@@ -8,3 +8,8 @@ export const selectTodos = createSelector(getState, (state: State) =>
     return a.isClosed === b.isClosed ? 0 : a.isClosed ? 1 : -1;
   })
 );
+
+export const getTodoById = (id: number) =>
+  createSelector(getState, (state: State) => {
+    return state.todos.find((todo) => todo.id == id);
+  });
