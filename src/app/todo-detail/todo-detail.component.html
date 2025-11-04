@@ -1,0 +1,24 @@
+<mat-card id="todo" appearance="outlined">
+  <div *ngIf="todo$ | async as todo; else emptyBlock">
+    <mat-card-header>
+      <mat-card-title>{{ todo.title }}</mat-card-title>
+      <mat-card-subtitle>{{
+        todo.isClosed ? "Closed" : "Not Closed"
+      }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ todo.description }}
+      </p>
+    </mat-card-content>
+  </div>
+  <mat-card-actions>
+    <button matButton (click)="return()">Retour à la liste</button>
+  </mat-card-actions>
+</mat-card>
+
+<ng-template #emptyBlock>
+  <mat-card-content>
+    This item could not be found or does not exist
+  </mat-card-content>
+</ng-template>
