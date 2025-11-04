@@ -36,8 +36,8 @@ describe('TodoListComponent', () => {
     component = fixture.componentInstance;
 
     mockTodosSelector = store.overrideSelector(selectTodos, [
-      { title: 'todo 1', isClosed: false },
-      { title: 'todo 2', isClosed: true },
+      { id: 1, title: 'todo 1', isClosed: false },
+      { id: 2, title: 'todo 2', isClosed: true },
     ]);
 
     fixture.detectChanges();
@@ -70,7 +70,7 @@ describe('TodoListComponent', () => {
     expect(
       closedElements[0].query(By.css('h4')).nativeElement.innerText
     ).toContain('todo 2');
-    
+
     const todoCheckboxes: MockedComponent<MatCheckbox>[] = todoElements
       .map((item) => item.query(By.css('mat-checkbox')))
       .map((item) => item.componentInstance);
