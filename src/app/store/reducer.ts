@@ -22,10 +22,7 @@ export const todosReducer = createReducer(
     const todos = state.todos.slice();
     const index = todos.indexOf(changedTodo);
     if (index >= 0) {
-      todos[index] = {
-        title: changedTodo.title,
-        isClosed: !changedTodo.isClosed,
-      };
+      todos[index] = { ...changedTodo, isClosed: !changedTodo.isClosed };
     }
     return { ...state, todos: todos };
   })

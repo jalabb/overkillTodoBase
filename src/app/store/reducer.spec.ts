@@ -18,7 +18,9 @@ describe('Reducer', () => {
   describe('loadTodosSuccess action', () => {
     it('should retrieve all todos and update the state', () => {
       const { initialState } = fromReducer;
-      const newState: State = { todos: [{ title: 'aTitle', isClosed: false }] };
+      const newState: State = {
+        todos: [{ id: 1, title: 'aTitle', isClosed: false }],
+      };
       const action = loadTodosSuccess({
         todos: [...newState.todos],
       });
@@ -33,21 +35,21 @@ describe('Reducer', () => {
   describe('toggleTodo action', () => {
     it('should toggle isClosed', () => {
       const { initialState } = fromReducer;
-      const todo = { title: 'aTitle', isClosed: false };
+      const todo = { id: 1, title: 'aTitle', isClosed: false };
       const newState: State = { todos: [todo] };
       const loadAction = loadTodosSuccess({
         todos: [...newState.todos],
       });
 
       let state = fromReducer.todosReducer(initialState, loadAction);
-      expect(state.todos).toEqual([{ title: 'aTitle', isClosed: false }]);
+      expect(state.todos).toEqual([{ id: 1, title: 'aTitle', isClosed: false }]);
 
       const toggleAction = toggleTodo({
         changedTodo: todo,
       });
 
       state = fromReducer.todosReducer(state, toggleAction);
-      expect(state.todos).toEqual([{ title: 'aTitle', isClosed: true }]);
+      expect(state.todos).toEqual([{ id: 1, title: 'aTitle', isClosed: true }]);
     });
   });
 });
