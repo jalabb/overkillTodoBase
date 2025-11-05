@@ -18,13 +18,11 @@ export class TodoService {
 
   createTodo(todo: Todo): Observable<Todo> {
     todo = { ...todo, dateModified: Date.now() };
-    console.log('save', todo);
     return this.http.post<Todo>(this.baseUrl, todo);
   }
 
   editTodo(todo: Todo): Observable<Todo> {
     todo = { ...todo, dateModified: Date.now() };
-    console.log('save', todo);
     return this.http
       .put<Todo>(this.baseUrl + todo.id, todo)
       .pipe(tap((t) => console.log('why is this null?', t)));
