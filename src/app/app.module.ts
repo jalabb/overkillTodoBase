@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -29,6 +31,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     AppRoutingModule,
     MatToolbarModule,
     MatIconModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatListModule,
@@ -43,6 +46,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
       maxAge: 25,
       logOnly: environment.production,
     }),
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

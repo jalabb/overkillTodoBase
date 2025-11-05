@@ -42,10 +42,12 @@ describe('Reducer', () => {
       });
 
       let state = fromReducer.todosReducer(initialState, loadAction);
-      expect(state.todos).toEqual([{ id: 1, title: 'aTitle', isClosed: false }]);
+      expect(state.todos).toEqual([
+        { id: 1, title: 'aTitle', isClosed: false },
+      ]);
 
       const toggleAction = toggleTodo({
-        changedTodo: todo,
+        todo: todo,
       });
 
       state = fromReducer.todosReducer(state, toggleAction);
