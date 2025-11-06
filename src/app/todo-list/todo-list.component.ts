@@ -28,8 +28,6 @@ export class TodoListComponent implements OnInit {
   }
 
   toggleTodo(todo: Todo) {
-    // FIXME 1 seul dispatch qui ferait les 2 ?
-    this.store.dispatch(toggleTodo({ todo }));
     todo = { ...todo, isClosed: !todo.isClosed };
     this.store.dispatch(editTodo({ todo }));
   }

@@ -4,17 +4,23 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { first } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Todo } from '../models/todo';
+import { State } from '../store/reducer';
 import { TodoService } from './todo.service';
 
 describe('TodoService', () => {
   let service: TodoService;
   let httpMock: HttpTestingController;
+  let store: MockStore<State>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({ imports: [HttpClientTestingModule] });
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [provideMockStore()],
+    });
     service = TestBed.inject(TodoService);
     httpMock = TestBed.inject(HttpTestingController);
   });

@@ -24,9 +24,11 @@ export const todosReducer = createReducer(
   })),
   on(toggleTodo, (state, { todo }) => {
     const todos = state.todos.slice();
-    const index = todos.indexOf(todo);
+    const index = todos.indexOf(
+      todos.find((t) => t.id == todo.id) ?? ({} as Todo)
+    );
     if (index >= 0) {
-      todos[index] = { ...todo, isClosed: !todo.isClosed };
+      todos[index] = todo;
     }
     return { ...state, todos: todos };
   })

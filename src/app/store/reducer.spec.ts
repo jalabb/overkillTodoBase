@@ -36,22 +36,24 @@ describe('Reducer', () => {
     it('should toggle isClosed', () => {
       const { initialState } = fromReducer;
       const todo = { id: 1, title: 'aTitle', isClosed: false };
-      const newState: State = { todos: [todo] };
+      const newState: State = {
+        todos: [{ id: 1, title: 'aTitle', isClosed: true }],
+      };
       const loadAction = loadTodosSuccess({
         todos: [...newState.todos],
       });
 
       let state = fromReducer.todosReducer(initialState, loadAction);
-      expect(state.todos).toEqual([
-        { id: 1, title: 'aTitle', isClosed: false },
-      ]);
+      expect(state.todos).toEqual([{ id: 1, title: 'aTitle', isClosed: true }]);
 
       const toggleAction = toggleTodo({
         todo: todo,
       });
 
       state = fromReducer.todosReducer(state, toggleAction);
-      expect(state.todos).toEqual([{ id: 1, title: 'aTitle', isClosed: true }]);
+      expect(state.todos).toEqual([
+        { id: 1, title: 'aTitle', isClosed: false },
+      ]);
     });
   });
 });

@@ -25,7 +25,7 @@ export class MockTodoApi implements InMemoryDbService {
       },
       { id: 5, title: 'More unit tests', isClosed: false },
       { id: 6, title: 'Prettier design', isClosed: false },
-      { id: 7, title: 'CI', isClosed: false },
+      { id: 7, title: 'CI?', isClosed: false },
     ];
     return { todos };
   }
