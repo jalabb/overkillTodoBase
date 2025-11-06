@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Add new item to TODO list</h1>
+<div mat-dialog-content>
+  <p>Creat new Todo</p>
+  <mat-form-field appearance="outline">
+    <mat-label>Title</mat-label>
+    <input
+      matInput
+      [(ngModel)]="data.title"
+      placeholder="Title is required"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input
+      matInput
+      [(ngModel)]="data.description"
+      placeholder="Description is optional"
+  /></mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">Cancel</button>
+  <button
+    type="submit"
+    mat-raised-button
+    [disabled]="isDisabled()"
+    [mat-dialog-close]="data"
+  >
+    Ok
+  </button>
+</div>

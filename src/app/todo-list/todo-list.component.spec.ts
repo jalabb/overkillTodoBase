@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MatCard, MatCardContent, MatCardTitle } from '@angular/material/card';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { MatRippleModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatList, MatListItem } from '@angular/material/list';
 import { By } from '@angular/platform-browser';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
@@ -25,7 +26,7 @@ describe('TodoListComponent', () => {
         MockComponents(MatCheckbox, MatListItem, MatList, MatCard),
         MockDirectives(MatCardContent, MatCardTitle),
       ],
-      imports: [MatRippleModule, FormsModule],
+      imports: [MatRippleModule, FormsModule, MatDialogModule],
       providers: [provideMockStore()],
     }).compileComponents();
   });

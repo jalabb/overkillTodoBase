@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { Todo } from '../models/todo';
-import { loadTodosSuccess, toggleTodo } from './actions';
+import { createTodoSuccess, loadTodosSuccess, toggleTodo } from './actions';
 
 export const featureKey = 'todosStore';
 
@@ -18,11 +18,17 @@ export const todosReducer = createReducer(
     ...state,
     todos,
   })),
-  on(toggleTodo, (state, { changedTodo }) => {
+  on(createTodoSuccess, (state, { todo }) => ({
+    ...state,
+    todos: [todo, ...state.todos],
+  })),
+  on(toggleTodo, (state, { todo }) => {
     const todos = state.todos.slice();
-    const index = todos.indexOf(changedTodo);
+    const index = todos.indexOf(
+      todos.find((t) => t.id == todo.id) ?? ({} as Todo)
+    );
     if (index >= 0) {
-      todos[index] = { ...changedTodo, isClosed: !changedTodo.isClosed };
+      todos[index] = todo;
     }
     return { ...state, todos: todos };
   })
